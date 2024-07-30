@@ -1,5 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import HttpResponse
+from django.template import loader
+from .models import Player
 
-def members(request):
-    return HttpResponse("Hello world!")
+# Create your views here.
+def home(request):
+    players = Player.objects.all().values()
+    template = loader.get_template('home.html')
+    context = {
+        'players': players,
+    }
+    return HttpResponse(template.render(context, request))

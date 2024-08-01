@@ -13,8 +13,8 @@ def scrape_players() -> list[dict]:
     for row in table.find_all('tr')[1:]:
         cols = row.find_all('td')
         
-        end_split = 2
-        if cols[2].text[0] == 'K':
+        end_split = 2 
+        if cols[2].text[0] == 'K': # if position is kicker
             end_split = 1
 
         try:
@@ -30,17 +30,37 @@ def scrape_players() -> list[dict]:
 
     return players
 
-scrape_players()
-
-def save_players(players):
+def save_players(players): #saves players to the database by position
     for player in players:
         name = player['name']
         team = player['team']
         position = player['position']
         bye_week = player['bye week']
 
-        if position == 'QB':
-            quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week)
-            quarterback.save()
+        match position:
+            case 'QB':
+                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week)
+                quarterback.save()
+            case 'RB':
+                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week)
+                runningback.save()
+            case 'WR':
+                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week)
+                widereciever.save()
+            case 'TE':
+                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week)
+                tightend.save()
+            case 'K':
+                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week)
+                kicker.save()
 
-save_players(scrape_players())
+        
+
+class Command(BaseCommand):
+    help = 'Scrape player data and save it to database'
+
+    def handle(self, *args, **kwargs):
+        self.stdout.write("Starting scraping...")
+        players = scrape_players()
+        save_players(players)
+        self.stdout.write("Finished scraping.")

@@ -1,8 +1,10 @@
-from django.shortcuts import render
-import requests
+from django.shortcuts import render, HttpResponse
+from django.template import loader
+from .models import Quarterback, RunningBack, WideReciever, TightEnd, Kicker
 
 # Create your views here.
-def fetch_data(request):
-    url = 'https://api.fantasynerds.com/v1/nfl/tiers?apikey=TEST&format='
-    response = requests.get(url)
-    players = response.json()
+def rankings_view(request):
+    quarterbacks = Quarterback.objects.all()
+    template = loader.get_template('rankings.html')
+    context = {'quarterbacks': quarterbacks,}
+    return HttpResponse(template.render(context, request))

@@ -1,7 +1,5 @@
-from django.shortcuts import HttpResponse, render
-from django.template import loader
-# from .models import Player
+from django.shortcuts import  render
 
 # Create your views here.
-def home(request):
+def home_view(request):
     return render(request, 'home.html')

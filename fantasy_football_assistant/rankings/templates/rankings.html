@@ -1,0 +1,10 @@
+{% extends "base.html" %} 
+{% block title %} Rankings {% endblock %}
+
+{% block content %} 
+<ul>
+    {% for qb in quarterbacks %}
+    <li> {{qb.name}} {{qb.team}} {{qb.position}} {{qb.bye_week}} </li>
+    {% endfor %}
+</ul>
+{% endblock %}

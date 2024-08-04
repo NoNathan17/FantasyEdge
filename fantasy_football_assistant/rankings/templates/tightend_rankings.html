@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block title %} Tight End Rankings {% endblock %}
+
+{% block content %}
+<ul>
+    <h1>Tight Ends</h1>
+    {% for te in tightends %}
+    <li> {{te.name}} {{te.team}} {{te.bye_week}} </li>
+    {% endfor %}
+</ul>
+{% endblock %}

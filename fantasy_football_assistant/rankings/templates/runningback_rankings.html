@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block title %} Running Back Rankings {% endblock %}
+
+{% block content %} 
+<ul>
+    <h1>Running Backs</h1>
+    {% for rb in runningbacks %}
+    <li> {{rb.name}} {{rb.team}} {{rb.bye_week}} </li>
+    {% endfor %}
+</ul>
+{% endblock %}

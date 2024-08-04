@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block title %} Kicker Rankings {% endblock %}
+
+{% block content %} 
+<ul>
+    <h1>Kickers</h1>
+    {% for k in kickers %}
+    <li> {{k.name}} {{k.team}} {{k.bye_week}} </li>
+    {% endfor %}
+</ul>
+{% endblock %}

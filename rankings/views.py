@@ -26,7 +26,7 @@ def runningback_view(request):
     runningbacks = RunningBack.objects.all()
     return render(request, 'runningback_rankings.html', {'runningbacks': runningbacks})
 
-def widereceiver_view(request):
+def widereciever_view(request):
     widereceivers = WideReciever.objects.all()
     return render(request, 'widereceiver_rankings.html', {'widereceivers': widereceivers})
 

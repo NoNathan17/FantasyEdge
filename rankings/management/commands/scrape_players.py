@@ -17,12 +17,20 @@ def scrape_players() -> list[dict]:
         if cols[2].text[0] == 'K': # if position is kicker
             end_split = 1
 
+        team_index = 2
+        bye_index = 3
+        three_syllables = ['II', 'III', 'Jr.', 'Sr.', 'St.']
+
         try:
+            if cols[1].text.split()[2] in three_syllables or cols[1].text.split()[1] in three_syllables: # if first name has 3 words
+                team_index = 3
+                bye_index = 4
+
             player_data = {
-                'name': cols[1].text.split()[0] + ' ' + cols[1].text.split()[1],
-                'team': cols[1].text.split()[2],
+                'name': " ".join(cols[1].text.split()[0:team_index]),
+                'team': cols[1].text.split()[team_index],
                 'position': cols[2].text[0:end_split],
-                'bye week': cols[1].text.split()[3]
+                'bye week': cols[1].text.split()[bye_index]
             }
             players.append(player_data)
         except IndexError:

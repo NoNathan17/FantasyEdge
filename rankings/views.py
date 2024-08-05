@@ -27,8 +27,8 @@ def runningback_view(request):
     return render(request, 'runningback_rankings.html', {'runningbacks': runningbacks})
 
 def widereciever_view(request):
-    widereceivers = WideReciever.objects.all()
-    return render(request, 'widereceiver_rankings.html', {'widereceivers': widereceivers})
+    widerecievers = WideReciever.objects.all()
+    return render(request, 'widereceiver_rankings.html', {'widerecievers': widerecievers})
 
 def tightend_view(request):
     tightends = TightEnd.objects.all()

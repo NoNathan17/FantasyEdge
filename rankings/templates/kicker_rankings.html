@@ -1,11 +1,22 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block title %} Kicker Rankings {% endblock %}
 
 {% block content %} 
-<ul>
-    <h1>Kickers</h1>
+<link rel="stylesheet" href="{% static 'css/rankings.css' %}">
+<h1>Kickers</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Bye Week</th>
+    </tr>
     {% for k in kickers %}
-    <li> {{k.name}} {{k.team}} {{k.bye_week}} </li>
+    <tr> 
+        <td>{{k.name}}</td>
+        <td>{{k.team}}</td>
+        <td>{{k.bye_week}}</td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 {% endblock %}

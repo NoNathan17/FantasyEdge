@@ -1,11 +1,22 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block title %} Tight End Rankings {% endblock %}
 
-{% block content %}
-<ul>
-    <h1>Tight Ends</h1>
+{% block content %} 
+<link rel="stylesheet" href="{% static 'css/rankings.css' %}">
+<h1>Tight Ends</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Bye Week</th>
+    </tr>
     {% for te in tightends %}
-    <li> {{te.name}} {{te.team}} {{te.bye_week}} </li>
+    <tr> 
+        <td>{{te.name}}</td>
+        <td>{{te.team}}</td>
+        <td>{{te.bye_week}}</td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 {% endblock %}

@@ -4,19 +4,23 @@
 
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/rankings.css' %}">
+<body>
 <h1>Running Backs</h1>
 <table>
     <tr>
+        <th>Rank</th>
         <th>Name</th>
         <th>Team</th>
         <th>Bye Week</th>
     </tr>
     {% for rb in runningbacks %}
     <tr> 
+        <td>{{forloop.counter}}</td>
         <td>{{rb.name}}</td>
         <td>{{rb.team}}</td>
         <td>{{rb.bye_week}}</td>
     </tr>
     {% endfor %}
 </table>
+</body>
 {% endblock %}

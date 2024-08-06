@@ -4,19 +4,23 @@
 
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/rankings.css' %}">
+<body>
 <h1>Tight Ends</h1>
 <table>
     <tr>
+        <th>Rank</th>
         <th>Name</th>
         <th>Team</th>
         <th>Bye Week</th>
     </tr>
     {% for te in tightends %}
     <tr> 
+        <td>{{forloop.counter}}</td>
         <td>{{te.name}}</td>
         <td>{{te.team}}</td>
         <td>{{te.bye_week}}</td>
     </tr>
     {% endfor %}
 </table>
+</body>
 {% endblock %}

@@ -11,6 +11,7 @@
         <th>Name</th>
         <th>Team</th>
         <th>Bye Week</th>
+        <th>ADP</th>
     </tr>
     {% for wr in widerecievers %}
     <tr> 
@@ -18,6 +19,7 @@
         <td>{{wr.name}}</td>
         <td>{{wr.team}}</td>
         <td>{{wr.bye_week}}</td>
+        <td>{{wr.adp}}</td>
     </tr>
     {% endfor %}
 </table>

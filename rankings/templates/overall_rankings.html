@@ -12,6 +12,7 @@
         <th>Position</th>
         <th>Team</th>
         <th>Bye Week</th>
+        <th>ADP</th>
     </tr>
     {% for p in players %}
     <tr> 
@@ -20,6 +21,7 @@
         <td>{{p.position}}</td>
         <td>{{p.team}}</td>
         <td>{{p.bye_week}}</td>
+        <td>{{p.adp}}</td>
     </tr>
     {% endfor %}
 </table>

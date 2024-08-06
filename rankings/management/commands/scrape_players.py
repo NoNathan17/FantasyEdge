@@ -34,7 +34,8 @@ def scrape_players() -> list[dict]:
                 'name': " ".join(cols[1].text.split()[0:team_index]),
                 'team': cols[1].text.split()[team_index],
                 'position': cols[2].text[0:end_split],
-                'bye week': cols[1].text.split()[bye_index]
+                'bye week': cols[1].text.split()[bye_index],
+                'adp': cols[8].text,
             }
             players.append(player_data)
         except IndexError:
@@ -48,33 +49,33 @@ def save_players(players): #saves players to the database by position
         team = player['team']
         position = player['position']
         bye_week = player['bye week']
+        adp = player['adp']
 
         if not position == 'DST':
-            player = Player(name=name, team=team, position=position, bye_week=bye_week)
+            player = Player(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
             player.save()
 
         match position:
             case 'QB':
-                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week)
+                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 quarterback.save()
             case 'RB':
-                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week)
+                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 runningback.save()
             case 'WR':
-                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week)
+                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 widereciever.save()
             case 'TE':
-                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week)
+                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 tightend.save()
             case 'K':
-                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week)
+                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 kicker.save()
             case 'DST':
-                defense = Defense(name=name, position=position, bye_week=bye_week)
+                defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp)
                 defense.save()
 
         
-
 class Command(BaseCommand):
     help = 'Scrape player data and save it to database'
 

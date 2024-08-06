@@ -2,8 +2,9 @@ table {
     border-style: solid;
     border-color: rgb(233, 231, 231);
     border-width: 2px;
-    width: 100%;
+    width: 80%;
     text-align: center;
+    margin: auto;
 }
 
 tr:nth-child(even) {

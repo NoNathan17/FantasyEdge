@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 import requests
 from bs4 import BeautifulSoup
-from rankings.models import Quarterback, RunningBack, WideReciever, TightEnd, Kicker
+from rankings.models import Player, Quarterback, RunningBack, WideReciever, TightEnd, Kicker, Defense
 
 def scrape_players() -> list[dict]:
     url = 'https://www.fantasypros.com/nfl/adp/ppr-overall.php'
@@ -17,12 +17,16 @@ def scrape_players() -> list[dict]:
         if cols[2].text[0] == 'K': # if position is kicker
             end_split = 1
 
+        if cols[2].text[0] == 'D': # if position is defense
+            end_split = 3
+
         team_index = 2
         bye_index = 3
-        three_syllables = ['II', 'III', 'Jr.', 'Sr.', 'St.']
+        three_names = ['II', 'III', 'Jr.', 'Sr.', 'St.', 'Bay', 'Los', 'Kansas', 'New', 'Las', 'San']
 
+        column_one = cols[1].text.split()
         try:
-            if cols[1].text.split()[2] in three_syllables or cols[1].text.split()[1] in three_syllables: # if first name has 3 words
+            if any(word in three_names for word in column_one[:3]): # if first name has 3 words
                 team_index = 3
                 bye_index = 4
 
@@ -45,6 +49,10 @@ def save_players(players): #saves players to the database by position
         position = player['position']
         bye_week = player['bye week']
 
+        if not position == 'DST':
+            player = Player(name=name, team=team, position=position, bye_week=bye_week)
+            player.save()
+
         match position:
             case 'QB':
                 quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week)
@@ -61,6 +69,9 @@ def save_players(players): #saves players to the database by position
             case 'K':
                 kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week)
                 kicker.save()
+            case 'DST':
+                defense = Defense(name=name, position=position, bye_week=bye_week)
+                defense.save()
 
         
 

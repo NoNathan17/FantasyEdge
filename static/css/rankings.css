@@ -1,7 +1,8 @@
-table, th, td {
-    border-style: inset;
+table {
+    border-style: solid;
+    border-color: rgb(233, 231, 231);
     border-width: 2px;
-    width: 40%;
+    width: 100%;
     text-align: center;
 }
 
@@ -9,6 +10,21 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-td:hover {
+tr:hover {
     background-color: powderblue;
 }
+
+th {
+    background-color: white;
+}
+
+td {
+    border-style: solid;
+    border-color: rgb(233, 231, 231);
+    border-width: 2px;
+}
+
+body {
+    margin-bottom: 10px;
+}
+

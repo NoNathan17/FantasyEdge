@@ -23,13 +23,15 @@
             <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
           <li class="dropdown">
-              <a class="nav-link dropdown-toggle" href="#">Rankings</a> 
+              <a class="nav-link dropdown-toggle" href="{% url 'overall_rankings' %}">Rankings</a> 
               <div class="dropdown-content">
                 <a class="dropdown-item" href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
                 <a class="dropdown-item" href="{% url 'runningback_rankings' %}">Running Backs</a>
                 <a class="dropdown-item" href="{% url 'widereciever_rankings' %}">Wide Recievers</a>
                 <a class="dropdown-item" href="{% url 'tightend_rankings' %}">Tight Ends</a>
                 <a class="dropdown-item" href="{% url 'kicker_rankings' %}">Kickers</a>
+                <a class="dropdown-item" href="{% url 'defense_rankings' %}">Defenses</a>
+
               </div>
           </li>
           <li class="nav-item">

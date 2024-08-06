@@ -1,24 +1,22 @@
 {% extends "base.html" %} 
 {% load static %}
-{% block title %} Quarterback Rankings {% endblock %}
+{% block title %} Defense Rankings {% endblock %}
 
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/rankings.css' %}">
 <body>
-<h1>Quarterbacks</h1>
+<h1>Defense/Special Teams</h1>
 <table>
     <tr>
         <th>Rank</th>
         <th>Name</th>
-        <th>Team</th>
         <th>Bye Week</th>
     </tr>
-    {% for qb in quarterbacks %}
+    {% for d in defenses %}
     <tr> 
         <td>{{forloop.counter}}</td>
-        <td>{{qb.name}}</td>
-        <td>{{qb.team}}</td>
-        <td>{{qb.bye_week}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.bye_week}}</td>
     </tr>
     {% endfor %}
 </table>

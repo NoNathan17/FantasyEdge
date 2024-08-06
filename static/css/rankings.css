@@ -16,6 +16,7 @@ tr:hover {
 
 th {
     background-color: white;
+    
 }
 
 td {
@@ -24,7 +25,7 @@ td {
     border-width: 2px;
 }
 
-body {
-    margin-bottom: 10px;
+h1 {
+    text-align: center;
 }
 

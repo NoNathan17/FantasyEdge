@@ -8,6 +8,7 @@ class Player(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
     
 class Quarterback(models.Model):
     name = models.CharField(max_length=100)
@@ -15,6 +16,7 @@ class Quarterback(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 class RunningBack(models.Model):
     name = models.CharField(max_length=100)
@@ -22,6 +24,7 @@ class RunningBack(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 class WideReciever(models.Model):
     name = models.CharField(max_length=100)
@@ -29,6 +32,7 @@ class WideReciever(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 class TightEnd(models.Model):
     name = models.CharField(max_length=100)
@@ -36,6 +40,7 @@ class TightEnd(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 class Kicker(models.Model):
     name = models.CharField(max_length=100)
@@ -43,12 +48,14 @@ class Kicker(models.Model):
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 class Defense(models.Model):
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=20)
     bye_week = models.CharField(max_length=20)
     adp = models.CharField(max_length=20, default='N/A')
+    info = models.URLField(max_length=200, default='N/A')
 
 
     

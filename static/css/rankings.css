@@ -1,26 +1,27 @@
-table {
+.rankings-table {
     border-style: solid;
     border-color: rgb(233, 231, 231);
     border-width: 2px;
     width: 80%;
     text-align: center;
     margin: auto;
+    font-size: 15px;
 }
 
-tr:nth-child(even) {
+.rankings-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-tr:hover {
+.rankings-table tr:hover {
     background-color: powderblue;
 }
 
-th {
+.rankings-table th {
     background-color: white;
     
 }
 
-td {
+.rankings-table td {
     border-style: solid;
     border-color: rgb(233, 231, 231);
     border-width: 2px;
@@ -28,5 +29,17 @@ td {
 
 h1 {
     text-align: center;
+    font-size: 30px;
 }
+
+.rankings-table a:link, .rankings-table a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.rankings-table a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 

@@ -5,22 +5,22 @@ ul {
      overflow: hidden;
      background-color: #212161;
      border-radius: 5px;
+     font-family: verdana, sans-serif;
    }
    
-   li {
+li {
      float: left;
    }
    
-   li a {
+li a {
      display: block;
      color: white;
      text-align: center;
      padding: 14px 16px;
      text-decoration: none;
-     font-family: Tahoma, sans-serif;
-   }
+     }
    
-   li a:hover {
+li a:hover {
      background-color: red;
    }
 
@@ -51,6 +51,6 @@ ul {
 }
 
 body {
-     font-family: Tahoma, sans-serif;
+     font-family: verdana, sans-serif;
 }
 

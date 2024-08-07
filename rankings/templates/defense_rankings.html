@@ -4,8 +4,8 @@
 
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/rankings.css' %}">
-<h1>Defense/Special Teams</h1>
-<table>
+<h1>Defense/Special Team Rankings (2024)</h1>
+<table class="rankings-table">
     <tr>
         <th>Rank</th>
         <th>Name</th>
@@ -14,7 +14,7 @@
     {% for d in defenses %}
     <tr> 
         <td>{{forloop.counter}}</td>
-        <td>{{d.name}}</td>
+        <td><a href="{{d.info}}" target="_blank">{{d.name}}</a></td>
         <td>{{d.bye_week}}</td>
     </tr>
     {% endfor %}

@@ -36,6 +36,7 @@ def scrape_players() -> list[dict]:
                 'position': cols[2].text[0:end_split],
                 'bye week': cols[1].text.split()[bye_index],
                 'adp': cols[8].text,
+                'info': f'https://www.fantasypros.com{cols[1].find("a")["href"]}'
             }
             players.append(player_data)
         except IndexError:
@@ -50,29 +51,30 @@ def save_players(players): #saves players to the database by position
         position = player['position']
         bye_week = player['bye week']
         adp = player['adp']
+        info = player['info']
 
         if not position == 'DST':
-            player = Player(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+            player = Player(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
             player.save()
 
         match position:
             case 'QB':
-                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 quarterback.save()
             case 'RB':
                 runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
                 runningback.save()
             case 'WR':
-                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 widereciever.save()
             case 'TE':
-                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 tightend.save()
             case 'K':
-                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 kicker.save()
             case 'DST':
-                defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp)
+                defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp, info=info)
                 defense.save()
 
         

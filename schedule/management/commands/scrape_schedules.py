@@ -22,7 +22,7 @@ def scrape_schedules() ->list[dict]:
         
         team_data = {
             'name': name,
-            'opponents': opponents
+            'opponents': opponents,
         }
 
         teams.append(team_data)
@@ -36,7 +36,6 @@ def save_schedules(teams):
 
         team = Team(name=name, opponents=opponents)
         team.save()
-
 
 class Command(BaseCommand):
     help = 'Scrape schedule data and save it to database'

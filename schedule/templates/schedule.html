@@ -1,0 +1,23 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block title %} Team Schedules {% endblock %}
+
+{% block content %} 
+<link rel="stylesheet" href="{% static 'css/schedule.css' %}">
+<h1>Team Schedules 2024</h1>
+{% for team in teams %}
+<table class="{{team.name}}-schedule">
+    <tr>
+        <th>{{t.name}}</th>
+    </tr>
+    <tr>
+        {% for opponent in t.opponents %}
+        <td>{{forloop.counter}}</td>
+        <td>{{opponent}}</td>
+        {% endfor %}
+    </tr>
+</table>
+{% endfor %}
+{% endblock %}
+
+

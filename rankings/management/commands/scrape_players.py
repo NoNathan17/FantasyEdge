@@ -77,7 +77,6 @@ def save_players(players): #saves players to the database by position
                 defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp, info=info)
                 defense.save()
 
-        
 class Command(BaseCommand):
     help = 'Scrape player data and save it to database'
 

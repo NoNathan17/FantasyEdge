@@ -5,9 +5,14 @@
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/notes.css' %}">
 <h1>Notes</h1>
-<ul class="notes_list">
+
+<div class="notes-list">
     {% for note in notes %}
-    <li>{{note}}</li>
+    <div class="note-card">
+        <h2>{{note.title}}</h2>
+        <p>{{note.text}}</p>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
 {% endblock %}

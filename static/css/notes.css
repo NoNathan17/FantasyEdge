@@ -1,3 +1,26 @@
-/* .notes_list ul {
-    color:white;
-} */
+.notes-list {
+    display: flex;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.note-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px; 
+}
+
+.note-card h2 {
+    margin-top: 0;
+}
+
+.note-card p {
+    color: black;
+}
+
+h1 {
+    text-align: center;
+}

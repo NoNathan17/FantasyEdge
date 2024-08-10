@@ -13,29 +13,32 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}"> 
   </head>
   <body>
-    <ul>
-      <li>
-        <a href="{% url 'home' %}">My Fantasy Assistant</a>
-      </li>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="#">Live</a></li>
-      <li class="dropdown">
-          <a href="{% url 'overall_rankings' %}">Rankings</a> 
-          <div class="dropdown-content">
-            <a href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
-            <a href="{% url 'runningback_rankings' %}">Running Backs</a>
-            <a href="{% url 'widereciever_rankings' %}">Wide Recievers</a>
-            <a href="{% url 'tightend_rankings' %}">Tight Ends</a>
-            <a href="{% url 'kicker_rankings' %}">Kickers</a>
-            <a href="{% url 'defense_rankings' %}">Defenses</a>
-          </div>
-      </li>
-      <li><a href="{% url 'team_schedules' %}">Schedule</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#">Waiver Wire</a></li>
-      <li><a href="#">Draft Assistant</a></li>
-      <li><a href="#">Trade Analyzer</a></li>
-    </ul>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'home' %}">My Fantasy Assistant</a>
+        </li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="#">Live</a></li>
+        <li class="dropdown">
+            <a href="{% url 'overall_rankings' %}">Rankings</a> 
+            <div class="dropdown-content">
+              <a href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
+              <a href="{% url 'runningback_rankings' %}">Running Backs</a>
+              <a href="{% url 'widereciever_rankings' %}">Wide Recievers</a>
+              <a href="{% url 'tightend_rankings' %}">Tight Ends</a>
+              <a href="{% url 'kicker_rankings' %}">Kickers</a>
+              <a href="{% url 'defense_rankings' %}">Defenses</a>
+            </div>
+        </li>
+        <li><a href="{% url 'team_schedules' %}">Schedule</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Waiver Wire</a></li>
+        <li><a href="#">Draft Assistant</a></li>
+        <li><a href="#">Trade Analyzer</a></li>
+        <li><a href="{% url 'notes' %}">Notes</a></li>
+      </ul>
+    </nav>
     <div>{% block content %}{% endblock %}</div>
   </body>
 </html>

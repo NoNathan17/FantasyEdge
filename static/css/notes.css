@@ -9,16 +9,9 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px; 
-}
-
-.note-card h2 {
-    margin-top: 0;
-}
-
-.note-card p {
-    color: black;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 20%; 
 }
 
 .note-card a:link, .note-card a:visited {
@@ -36,7 +29,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px; 
+    width: 20%; 
     margin: 50px 50px;
 }
 
@@ -47,4 +40,36 @@
 h1 {
     text-align: center;
 }
+
+.note-form {
+    margin: auto;
+    width: 20%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.create-note-button {
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 8%;
+    right: 2%;
+    font-family: verdana, sans-serif;
+}
+
+.create-note-button a:link, .create-note-button a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+
+
 

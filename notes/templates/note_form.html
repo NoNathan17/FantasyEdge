@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block title %} New Note {% endblock %}
+
+{% block content %} 
+<link rel="stylesheet" href="{% static 'css/notes.css' %}">
+<h1>Create a New Note</h1>
+
+<div class="note-form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+{% endblock %}

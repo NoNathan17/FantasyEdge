@@ -9,7 +9,7 @@
 <div class="notes-list">
     {% for note in notes %}
     <div class="note-card">
-        <h2>{{note.title}}</h2>
+        <h2><a href="{% url 'notes_detail' pk=note.id %}">{{note.title}}</a></h2>
         <p>{{note.text}}</p>
     </div>
     {% endfor %}

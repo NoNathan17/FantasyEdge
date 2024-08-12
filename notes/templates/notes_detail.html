@@ -5,7 +5,9 @@
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/notes.css' %}">
 
-<h1>{{note.title}}</h1>
-<p>{{note.text}}</p>
+<div class="note-detail">
+    <h2>{{note.title}}</h2>
+    <p>{{note.text}}</p>
+</div>
 
 {% endblock %}

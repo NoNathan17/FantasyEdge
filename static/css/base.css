@@ -1,14 +1,23 @@
-nav ul {
+/* Navabr Styles */
+.navbar {
+     display: flex;
+     align-items: center;
+     margin: 0;
+     padding: 0;
+     background-color: #212161;
+     border-radius: 5px;
+     overflow: hidden;
+}
+
+.nav-menu {
      list-style-type: none;
      margin: 0;
      padding: 0;
-     overflow: hidden;
-     background-color: #212161;
-     border-radius: 5px;
      font-family: verdana, sans-serif;
-   }
-   
-nav li {
+     display: flex;
+     }
+
+.nav-item {
      float: left;
    }
    
@@ -54,8 +63,64 @@ body {
      font-family: verdana, sans-serif;
 }
 
+.logo {
+     font-size: 20px;;
+     font-weight: 500;
+     text-decoration: none;
+     color: white;
+     font-family: verdana, sans-serif;
+     padding: 10px;
+}
 
-/* 
-@media (max-width: 1250px) 
+/* Hamburger Styles */
 
- */
+.hamburger {
+     display: none;
+}
+
+.bar {
+     display: block;
+     width: 25px;
+     height: 3px;
+     margin: 5px auto;
+     -webkit-transition: all 0.3s ease-in-out;
+     transition: all 0.3s ease-in-out;
+     background-color: white;
+ }
+
+@media (max-width: 1250px) {
+     .nav-menu {
+          position: fixed;
+          left: -100%;
+          top: 5rem;
+          flex-direction: column;
+          background-color: #fff;
+          width: 99%;
+          border-radius: 10px;
+          transition: 0.3s;
+          box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+          z-index: 1;
+     }
+
+     .nav-menu.show {
+          left: 0;
+          background-color: #212161;
+     }
+
+     .dropdown-content {
+          width: 100%;
+          background-color: #212161;
+     }
+
+     .hamburger {
+          display: block;
+          cursor: pointer;
+          padding: 10px;
+     }
+
+     .hamburger.active .bar {
+          background-color: red;
+     }
+
+    }
+

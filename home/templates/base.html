@@ -13,14 +13,21 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}"> 
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="{% url 'home' %}">My Fantasy Assistant</a>
+    <nav class="navbar">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <a href="{% url 'home' %}" class="logo">My Fantasy Assistant</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <a href="{% url 'home' %}">Home</a>
         </li>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="#">Live</a></li>
-        <li class="dropdown">
+        <li class="nav-item">
+          <a href="#">Live</a>
+        </li>
+        <li class="dropdown nav-item">
             <a href="{% url 'overall_rankings' %}">Rankings</a> 
             <div class="dropdown-content">
               <a href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
@@ -31,14 +38,27 @@
               <a href="{% url 'defense_rankings' %}">Defenses</a>
             </div>
         </li>
-        <li><a href="{% url 'team_schedules' %}">Schedule</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Waiver Wire</a></li>
-        <li><a href="#">Draft Assistant</a></li>
-        <li><a href="#">Trade Analyzer</a></li>
-        <li><a href="{% url 'notes' %}">Notes</a></li>
+        <li class="nav-item">
+          <a href="{% url 'team_schedules' %}">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">News</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Waiver Wire</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Draft Assistant</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Trade Analyzer</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'notes' %}">Notes</a>
+        </li>
       </ul>
     </nav>
     <div>{% block content %}{% endblock %}</div>
+    <script src="{% static 'js/base.js' %}"></script>
   </body>
 </html>

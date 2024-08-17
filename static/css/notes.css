@@ -1,5 +1,6 @@
 .notes-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap: 20px; 
     padding: 20px;
 }
@@ -11,7 +12,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding-left: 20px;
     padding-bottom: 20px;
-    width: 20%; 
 }
 
 .note-card a:link, .note-card a:visited {
@@ -53,12 +53,17 @@ h1 {
 }
 
 .create-note-button {
-    color: white;
-    padding: 10px 15px;
+    background-color: #f9f9f9;
+    display: inline-block;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
+    border: solid;
+    border-color: black;
     border-radius: 5px;
-    position: fixed;
+    font-size: 14px;
+    color: black;
+    position: absolute;
     top: 8%;
     right: 2%;
     font-family: verdana, sans-serif;
@@ -70,11 +75,15 @@ h1 {
     font-size: 14px;
 }
 
-.create-note-button a:hover {
-    text-decoration: underline;
+.create-note-button:hover {
+    background-color: #f1f1f1;
 }
 
 @media (max-width: 768px) {
+    .notes-list {
+        grid-template-columns: 1fr;
+    }
+
     .note-card h2{
         font-size: 18px;
     }

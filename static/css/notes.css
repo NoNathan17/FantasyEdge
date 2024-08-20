@@ -81,6 +81,7 @@ h1 {
     right: 2%;
     color: black;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .delete-button:hover {

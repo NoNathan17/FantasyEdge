@@ -1,4 +1,19 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block title %} Home Page {% endblock %}
 
-{% block content %} Your personal fantasy assistant! {% endblock %}
+{% block content %} 
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to Your Fantasy Football Assistant</h1>
+        <p>All the tools you need to dominate your fantasy league</p>
+        <div class="hero-buttons">
+            <a href="{% url 'overall_rankings' %}" class="btn">View Rankings</a>
+            <a href="{% url 'team_schedules' %}" class="btn">Check Schedule</a>
+            <a href="{% url 'notes' %}" class="btn">Manage Notes</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

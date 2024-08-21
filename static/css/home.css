@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.hero-buttons {
+    margin: 30px;
+}
+
 .hero-buttons .btn {
     background-color: #ff9800;
     color: white;

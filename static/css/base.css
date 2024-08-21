@@ -1,15 +1,16 @@
 /* Navabr Styles */
+
 .navbar {
      display: flex;
      align-items: center;
-     justify-content: center;
-     margin: 0;
+     margin: auto;
      padding: 0;
      border: solid;
      border-radius: 10px;
-     border-color: rgba(0, 0, 0, 0.6);
+     border-color: rgba(36, 36, 48, 1);
      overflow: hidden;
      box-shadow: 0px 10px 16px rgba(0,0,0,0.2);
+     max-width: 55%;
 }
 
 .nav-menu {
@@ -33,7 +34,7 @@ nav li a {
      }
    
 nav li a:hover {
-     background-color: red;
+     background-color: rgba(255, 255, 255, 0.3);
    }
 
 nav .dropdown:hover .dropdown-content {
@@ -66,6 +67,7 @@ nav .dropdown-content a:hover {
 body {
      font-family: verdana, sans-serif;
      background: linear-gradient(135deg, rgba(72, 72, 88, 1) 0%, rgba(36, 36, 48, 1) 100%);
+     background-attachment: fixed;
 }
 
 h1 {
@@ -102,9 +104,9 @@ h1 {
           position: fixed;
           left: -100%;
           top: 5rem;
+          width: 99%;
           flex-direction: column;
           background-color: #fff;
-          width: 99%;
           border-radius: 10px;
           transition: 0.3s;
           box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -113,12 +115,15 @@ h1 {
 
      .nav-menu.show {
           left: 0;
-          background-color: #212161;
+          background-color: rgba(72, 72, 88, 1);
+          border: solid;
+          border-radius: 10px;
+          border-color: rgba(36, 36, 48, 1);
      }
 
      .dropdown-content {
           width: 100%;
-          background-color: #212161;
+          background-color: rgba(72, 72, 88, 1);
      }
 
      .hamburger {
@@ -129,6 +134,10 @@ h1 {
 
      .hamburger.active .bar {
           background-color: red;
+     }
+
+     .logo {
+          font-size: 18px;
      }
 
     }

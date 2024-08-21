@@ -1,6 +1,5 @@
 .schedule-table {
     border-style: solid;
-    border-color: rgb(233, 231, 231);
     border-width: 2px;
     border-radius: 5px;
     width: 70%;
@@ -9,17 +8,18 @@
     margin: auto;
     margin-bottom: 35px;
     font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow-x: auto;
 }
 
 .schedule-table th {
-    background-color: powderblue;
     color: white;
     height: 40px;
     border-radius: 5px;
 }
 
 .schedule-table tr {
+    color: #e0e0e0;
     font-weight: normal;
 }
 

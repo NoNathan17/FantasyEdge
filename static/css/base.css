@@ -64,6 +64,17 @@ nav .dropdown-content a:hover {
      background-color: rgba(255, 255, 255, 0.3);
 }
 
+.logo {
+     font-size: 20px;;
+     font-weight: 500;
+     text-decoration: none;
+     color: white;
+     font-family: verdana, sans-serif;
+     padding: 10px;
+}
+
+/* Content Styles */
+
 body {
      font-family: verdana, sans-serif;
      background: linear-gradient(135deg, rgba(72, 72, 88, 1) 0%, rgba(36, 36, 48, 1) 100%);
@@ -74,14 +85,9 @@ h1 {
      color: white;
 }
 
-.logo {
-     font-size: 20px;;
-     font-weight: 500;
-     text-decoration: none;
-     color: white;
-     font-family: verdana, sans-serif;
-     padding: 10px;
-}
+.content {
+     min-height: calc(100vh - 100px); 
+ }
 
 /* Hamburger Styles */
 
@@ -98,6 +104,29 @@ h1 {
      transition: all 0.3s ease-in-out;
      background-color: white;
  }
+
+ /* Footer Styles */
+
+ .site-footer {
+     color: #ecf0f1;
+     text-align: center;
+     padding: 20px 0;
+     margin-top: 50px;
+     width: 100%;
+     border-top: solid;
+ }
+
+ .footer-nav {
+    margin-top: 10px;
+}
+
+.footer-nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
 
 @media (max-width: 1250px) {
      .nav-menu {

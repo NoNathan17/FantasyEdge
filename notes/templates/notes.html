@@ -12,9 +12,28 @@
     <div class="note-card">
         <h2><a href="{% url 'note_detail' pk=note.id %}" class="note-title">{{note.title}}</a></h2>
         <p>{{note.text}}</p>
-        <a href="{% url 'note_delete' pk=note.id %}" class="delete-button">X</a>
+
+        <form action="{% url 'note_delete' note.id %}" method="post">
+            {% csrf_token %}
+            <a href="#" class="delete-button" onclick="confirmDelete(event, this)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </form>
+        
+        <a href="{% url 'note_edit' note.id %}" class="edit-button">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
     </div>
     {% endfor %}
 </div>
+
+<script>
+    function confirmDelete(event, element) {
+        event.preventDefault()
+        if (confirm("Are you sure you want to delete this note?")) {
+            element.closest('form').submit();
+        }
+    }
+</script>
 
 {% endblock %}

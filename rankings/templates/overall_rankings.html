@@ -5,7 +5,8 @@
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/rankings.css' %}">
 <h1>Overall Rankings (2024)</h1>
-<nav></nav>
+{% include 'rankings_navbar.html' %}
+
 <table class="rankings-table">
     <tr>
         <th>Rank</th>

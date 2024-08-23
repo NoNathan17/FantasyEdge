@@ -1,3 +1,5 @@
+/* Table Styles */
+
 .rankings-table {
     border-color: rgb(233, 231, 231);
     width: 80%;
@@ -46,4 +48,50 @@ h1 {
     text-decoration: underline;
 }
 
+/* Nav Styles */
+
+.rankings-nav {
+    padding: 10px 0;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    width: 80%;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rankings-menu {
+    list-style: none;
+    display: flex;
+    padding: 3px;
+    margin: 0;
+}
+
+.rankings-menu li {
+    margin: 0 15px;
+}
+
+.rankings-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rankings-menu a:hover {
+    color: #ff9800;
+}
+
+.active {
+    background-color: #ff9800;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .rankings-menu li {
+        margin: 10px;
+    }
+}
 

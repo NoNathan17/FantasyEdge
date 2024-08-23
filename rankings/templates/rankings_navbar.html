@@ -1,0 +1,11 @@
+<div class="rankings-nav">
+    <ul class="rankings-menu">
+        <li><a class="{% if request.path == '/rankings/overall' %}active{% endif %}" href="{% url 'overall_rankings' %}">Overall</a></li>
+        <li><a class="{% if request.path == '/rankings/quarterbacks/' %}active{% endif %}" href="{% url 'quarterback_rankings' %}">QB</a></li>
+        <li><a class="{% if request.path == '/rankings/runningbacks/' %}active{% endif %}" href="{% url 'runningback_rankings' %}">RB</a></li>
+        <li><a class="{% if request.path == '/rankings/widerecievers/' %}active{% endif %}" href="{% url 'widereciever_rankings' %}">WR</a></li>
+        <li><a class="{% if request.path == '/rankings/tightends/' %}active{% endif %}" href="{% url 'tightend_rankings' %}">TE</a></li>
+        <li><a class="{% if request.path == '/rankings/kickers/' %}active{% endif %}" href="{% url 'kicker_rankings' %}">K</a></li>
+        <li><a class="{% if request.path == '/rankings/defenses/' %}active{% endif %}" href="{% url 'defense_rankings' %}">DST</a></li>
+    </ul>
+</div>

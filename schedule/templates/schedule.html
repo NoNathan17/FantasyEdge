@@ -5,6 +5,7 @@
 {% block content %} 
 <link rel="stylesheet" href="{% static 'css/schedule.css' %}">
 <h1>Team Schedules 2024</h1>
+
 {% for team in teams %}
 <table class="schedule-table table-{{forloop.counter}}">
     <tr>

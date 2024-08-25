@@ -30,13 +30,13 @@ def scrape_news():
     return news
 
 def save_news(news):
-    for headline in news:
-        header = news['header']
-        description = news['description']
-        fantasy_impact = news['impact']
+    for item in news:
+        header = item['header']
+        description = item['description']
+        fantasy_impact = item['impact']
 
-        headline = News(header=header, description=description, fantasy_impact=fantasy_impact)
-        headline.save()
+        item = News(header=header, description=description, fantasy_impact=fantasy_impact)
+        item.save()
 
 class Command(BaseCommand):
     help = 'Scrape news data and save it to the database'
@@ -44,5 +44,5 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         self.stdout.write("Starting scraping...")
         news = scrape_news()
-        save_news()
+        save_news(news)
         self.stdout.write("Finished scraping.")

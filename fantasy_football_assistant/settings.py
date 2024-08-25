@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rankings',
     'schedule',
     'notes',
+    'news'
 ]
 
 MIDDLEWARE = [

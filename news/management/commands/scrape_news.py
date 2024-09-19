@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 import requests
 from bs4 import BeautifulSoup
 from news.models import News
+from django.db import IntegrityError
 
 def scrape_news():
     url = 'https://www.fantasypros.com/nfl/breaking-news.php'
@@ -31,12 +32,15 @@ def scrape_news():
 
 def save_news(news):
     for item in news:
-        header = item['header']
-        description = item['description']
-        fantasy_impact = item['impact']
+        try:
+            header = item['header']
+            description = item['description']
+            fantasy_impact = item['impact']
 
-        item = News(header=header, description=description, fantasy_impact=fantasy_impact)
-        item.save()
+            item = News(header=header, description=description, fantasy_impact=fantasy_impact)
+            item.save()
+        except IntegrityError:
+            print(f'Header: "{header}" already exists. Not saving to database.')
 
 class Command(BaseCommand):
     help = 'Scrape news data and save it to the database'

@@ -16,4 +16,22 @@
         </div>
     </div>
 </div>
+
+<div class="carousel"></div>
+    <div class="carousel-wrapper">
+        {% for news in news_items %}
+            <div class="carousel-slide">
+                <h3>{{ news.header }}</h3>
+                <p>{{ news.description }}</p>
+                <p><strong>Fantasy Impact:</strong> {{ news.fantasy_impact }}</p>
+            </div>
+        {% empty %}
+            <div class="carousel-slide">
+                <h3>No News Available</h3>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+</div>
 {% endblock %}

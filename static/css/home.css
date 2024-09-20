@@ -1,21 +1,23 @@
+/* Hero Section */
 .hero-section {
     position: relative;
     height: 100vh;
-    display: flex;
-    justify-content: center;
     color: white;
     text-align: center;
     margin-top: 50px;
+    flex-direction: column; 
 }
 
 .hero-content {
-    position: relative;
+    margin: auto;
 }
 
+/* Hero Buttons */
 .hero-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 40px; 
 }
 
 .hero-buttons .btn {
@@ -32,55 +34,80 @@
     background-color: #e68900;
 }
 
+/* Carousel Styles */
 .carousel {
     position: relative;
-    width: 100%;
+    width: 50%;
+    margin: auto;
     overflow: hidden;
+    z-index: 0; 
 }
 
 .carousel-wrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-list {
+    display: flex;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 .carousel-slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: #333; /* Adjust as needed */
-    color: white;
+    flex: 0 0 auto; 
+    width: 100%; 
+    box-sizing: border-box; 
     text-align: center;
+    border: solid;
 }
 
-.carousel-control {
+.carousel-slide img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.carousel-slide h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+/* Navigation Buttons */
+
+button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    cursor: pointer;
     padding: 10px;
     font-size: 18px;
-    z-index: 10;
+    cursor: pointer;
+    z-index: 2; 
 }
 
-.prev {
+button.prev {
     left: 10px;
 }
 
-.next {
+button.next {
     right: 10px;
 }
 
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
 @media (max-width: 768px) {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    .hero-buttons .btn{
+    .hero-buttons .btn {
         width: 80%;
     }
-
 }

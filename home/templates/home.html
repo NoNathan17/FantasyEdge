@@ -9,29 +9,33 @@
     <div class="hero-content">
         <h1>Welcome to Your Fantasy Football Assistant</h1>
         <p>All the tools you need to dominate your fantasy league</p>
+
         <div class="hero-buttons">
             <a href="{% url 'overall_rankings' %}" class="btn">View Rankings</a>
             <a href="{% url 'team_schedules' %}" class="btn">Check Schedules</a>
             <a href="{% url 'notes' %}" class="btn">Manage Notes</a>
         </div>
+    
+        <h2>Latest News</h2>
+        <div class="carousel">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        
+            <div class="carousel-wrapper">
+                <div class="carousel-list">
+                    {% for news in news_items %}
+                        <div class="carousel-slide">
+                            <h3>{{ news.header }}</h3>
+                            <img src="{{ news.image }}" alt="{{ news.header }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
     </div>
 </div>
 
-<div class="carousel"></div>
-    <div class="carousel-wrapper">
-        {% for news in news_items %}
-            <div class="carousel-slide">
-                <h3>{{ news.header }}</h3>
-                <p>{{ news.description }}</p>
-                <p><strong>Fantasy Impact:</strong> {{ news.fantasy_impact }}</p>
-            </div>
-        {% empty %}
-            <div class="carousel-slide">
-                <h3>No News Available</h3>
-            </div>
-        {% endfor %}
-    </div>
-    <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
-</div>
+<script src="{% static 'js/home.js' %}"></script>
+
 {% endblock %}

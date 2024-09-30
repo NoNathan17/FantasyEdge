@@ -23,11 +23,14 @@ def scrape_news():
         previous_div = box.find_previous_sibling('div') # div that contains the player image
         image = previous_div.find('img')['src']
 
+        date = box.select_one('p').text
+
         news_data = {
             'header': header.text,
             'description': description.text,
             'impact': fantasy_impact.text[16:],
             'image': image,
+            'date': date,
         }
         
         news.append(news_data)
@@ -41,8 +44,9 @@ def save_news(news):
             description = item['description']
             fantasy_impact = item['impact']
             image = item['image']
+            date = item['date']
 
-            item = News(header=header, description=description, fantasy_impact=fantasy_impact, image=image)
+            item = News(header=header, description=description, fantasy_impact=fantasy_impact, image=image, date=date)
             item.save()
         except IntegrityError:
             print(f'Header: "{header}" already exists. Not saving to database.')

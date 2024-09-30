@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 import requests
 from bs4 import BeautifulSoup
 from rankings.models import Player, Quarterback, RunningBack, WideReciever, TightEnd, Kicker, Defense
+from django.db import IntegrityError
 
 def scrape_players() -> list[dict]:
     url = 'https://www.fantasypros.com/nfl/adp/ppr-overall.php'
@@ -44,6 +45,7 @@ def scrape_players() -> list[dict]:
 
     return players
 
+
 def save_players(players): #saves players to the database by position
     for player in players:
         name = player['name']
@@ -54,28 +56,49 @@ def save_players(players): #saves players to the database by position
         info = player['info']
 
         if not position == 'DST':
-            player = Player(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-            player.save()
+            try:
+                player = Player(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                player.save()
+            except IntegrityError:
+                print(f'Player: {name} already exists. Not saving to database')
 
         match position:
             case 'QB':
-                quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-                quarterback.save()
+                try:
+                    quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                    quarterback.save()
+                except IntegrityError:
+                    print(f'Quarterback: {name} already exists. Not saving to database.')
             case 'RB':
-                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-                runningback.save()
+                try:
+                    runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                    runningback.save()
+                except IntegrityError:
+                    print(f'Runningback: {name} already exists. Not saving to database.')
             case 'WR':
-                widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-                widereciever.save()
+                try:
+                    widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                    widereciever.save()
+                except IntegrityError:
+                    print(f'Wide Reciever: {name} already exists. Not saving to database.')
             case 'TE':
-                tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-                tightend.save()
+                try:
+                    tightend = TightEnd(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                    tightend.save()
+                except IntegrityError:
+                    print(f'Tight End: {name} already exists. Not saving to database')
             case 'K':
-                kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
-                kicker.save()
+                try:
+                    kicker = Kicker(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
+                    kicker.save()
+                except IntegrityError:
+                    print(f'Kicker: {name} already exists. Not saving to databse.')
             case 'DST':
-                defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp, info=info)
-                defense.save()
+                try:
+                    defense = Defense(name=name, position=position, bye_week=bye_week, adp=adp, info=info)
+                    defense.save()
+                except IntegrityError:
+                    print(f'Defense: {name} already exists. Not saving ton database.')
 
 class Command(BaseCommand):
     help = 'Scrape player data and save it to database'

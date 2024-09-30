@@ -62,7 +62,7 @@ def save_players(players): #saves players to the database by position
                 quarterback = Quarterback(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 quarterback.save()
             case 'RB':
-                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp)
+                runningback = RunningBack(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)
                 runningback.save()
             case 'WR':
                 widereciever = WideReciever(name=name, team=team, position=position, bye_week=bye_week, adp=adp, info=info)

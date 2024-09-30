@@ -5,7 +5,7 @@ from news.models import News
 from django.db import IntegrityError
 
 def scrape_news():
-    url = 'https://www.fantasypros.com/nfl/breaking-news.php'
+    url = 'https://www.fantasypros.com/nfl/breaking-news.php?page=1'
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
@@ -23,14 +23,11 @@ def scrape_news():
         previous_div = box.find_previous_sibling('div') # div that contains the player image
         image = previous_div.find('img')['src']
 
-        date = box.select_one('p').text
-
         news_data = {
             'header': header.text,
             'description': description.text,
             'impact': fantasy_impact.text[16:],
             'image': image,
-            'date': date,
         }
         
         news.append(news_data)
@@ -38,15 +35,14 @@ def scrape_news():
     return news
 
 def save_news(news):
-    for item in news:
+    for item in reversed(news):
         try:
             header = item['header']
             description = item['description']
             fantasy_impact = item['impact']
             image = item['image']
-            date = item['date']
 
-            item = News(header=header, description=description, fantasy_impact=fantasy_impact, image=image, date=date)
+            item = News(header=header, description=description, fantasy_impact=fantasy_impact, image=image)
             item.save()
         except IntegrityError:
             print(f'Header: "{header}" already exists. Not saving to database.')

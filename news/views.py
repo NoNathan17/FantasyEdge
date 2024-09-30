@@ -6,7 +6,7 @@ from .models import News
 # Create your views here.
 
 def news_view(request):
-    news = News.objects.all().order_by('created_at')
+    news = News.objects.all().order_by('-created_at')
     paginator = Paginator(news, 10) # 10 news items per page
 
     page_number = request.GET.get('page')

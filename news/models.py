@@ -7,5 +7,4 @@ class News(models.Model):
     description = models.TextField()
     fantasy_impact = models.TextField()
     image = models.URLField(max_length=200, blank=True, null=True)
-    date = models.TextField(default="")
     created_at = models.DateTimeField(auto_now_add=True)

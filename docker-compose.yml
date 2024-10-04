@@ -2,8 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "8000:8000"  # for HTTP
-      - "8443:8443"  # for HTTPS
+      - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - redis
@@ -16,7 +15,7 @@ services:
 
   celery:
     build: .
-    command: celery -A fantasy_football_assistant worker -l info
+    command: sh -c "until nc -z redis 6379; do sleep 1; done; celery -A fantasy_football_assistant worker -l info"
     volumes:
       - .:/app
     depends_on:
@@ -24,7 +23,7 @@ services:
 
   celery-beat:
     build: .
-    command: celery -A fantasy_football_assistant beat -l info
+    command: sh -c "until nc -z redis 6379; do sleep 1; done; celery -A fantasy_football_assistant beat -l info"
     volumes:
       - .:/app
     depends_on:

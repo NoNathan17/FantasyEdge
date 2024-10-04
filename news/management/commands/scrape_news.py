@@ -5,7 +5,7 @@ from news.models import News
 from django.db import IntegrityError
 
 def scrape_news():
-    url = 'https://www.fantasypros.com/nfl/breaking-news.php?page=1'
+    url = 'https://www.fantasypros.com/nfl/breaking-news.php'
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 

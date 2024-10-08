@@ -21,7 +21,11 @@ def scrape_news():
         fantasy_impact = description.find_next_sibling('p')       
 
         previous_div = box.find_previous_sibling('div') # div that contains the player image
-        image = previous_div.find('img')['src']
+
+        try:
+            image = previous_div.find('img')['src']
+        except TypeError:
+            image = 'https://static.vecteezy.com/system/resources/previews/020/911/740/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
 
         news_data = {
             'header': header.text,

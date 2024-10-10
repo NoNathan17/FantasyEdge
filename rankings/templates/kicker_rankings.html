@@ -14,7 +14,7 @@
         <th>Team</th>
         <th>Bye Week</th>
     </tr>
-    {% for k in kickers %}
+    {% for k in page_obj %}
     <tr> 
         <td>{{forloop.counter}}</td>
         <td><a href="{{k.info}}" target="_blank">{{k.name}}</a></td>
@@ -23,4 +23,20 @@
     </tr>
     {% endfor %}
 </table>
+
+<div class="pagination">
+    <ul class="pagination-list">
+        {% if page_obj.has_previous %}
+            <li><a href="?page=1">&laquo; First</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+        {% endif %}
+
+        <li class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
+
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            <li><a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+        {% endif %}
+    </ul>
+</div>
 {% endblock %}

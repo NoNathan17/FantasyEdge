@@ -14,7 +14,7 @@ def scrape_players() -> list[dict]:
     for row in table.find_all('tr')[1:]:
         cols = row.find_all('td')
         
-        end_split = 2 
+        end_split = 2  
         if cols[2].text[0] == 'K': # if position is kicker
             end_split = 1
 

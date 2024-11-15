@@ -45,7 +45,8 @@ h1 {
 
 .note-form {
     margin: auto;
-    width: 20%;
+    width: 21%;
+    max-width: 800px;
     background-color: #575252;;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -53,6 +54,12 @@ h1 {
     padding-left: 20px;
     padding-bottom: 20px;
     color: #e0e0e0;
+}
+
+.note-form input, .note-form textarea {
+    width: 90%;
+    max-width: 100%; 
+    margin-top: 8px;
 }
 
 .create-note-button {
@@ -101,7 +108,7 @@ h1 {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .notes-list {
         grid-template-columns: 1fr;
     }
@@ -112,6 +119,9 @@ h1 {
 
     .note-card p {
         font-size: 16px;
+    }
+    .note-form {
+        width: 50%;
     }
 }
 

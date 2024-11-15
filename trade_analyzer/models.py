@@ -8,3 +8,6 @@ class Player(models.Model):
     position = models.CharField(max_length=20)
     info = models.URLField(max_length=200, default='N/A')
     rating = models.DecimalField(max_digits=4, decimal_places=1, default=0.0)
+
+    def __str__(self):
+        return f'{self.name}'

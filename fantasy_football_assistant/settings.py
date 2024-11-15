@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'schedule',
     'notes',
     'news',
+    'trade_analyzer',
 ]
 
 MIDDLEWARE = [

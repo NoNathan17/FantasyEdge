@@ -2,6 +2,7 @@
 
 .navbar {
      display: flex;
+     justify-content: space-evenly;
      align-items: center;
      margin: auto;
      padding: 0;
@@ -10,7 +11,7 @@
      border-color: rgba(36, 36, 48, 1);
      overflow: hidden;
      box-shadow: 0px 10px 16px rgba(0,0,0,0.2);
-     width: 56%;
+     width: 48%;
 }
 
 .nav-menu {
@@ -133,7 +134,9 @@ h1 {
           position: fixed;
           left: -100%;
           top: 5rem;
-          width: 99%;
+          width: 95%;
+          margin-left: 10px;
+          margin-right: 10px;
           flex-direction: column;
           background-color: #fff;
           border-radius: 10px;

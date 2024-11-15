@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'schedule',
     'notes',
     'news',
-    'waivers',
 ]
 
 MIDDLEWARE = [

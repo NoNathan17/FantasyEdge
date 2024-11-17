@@ -6,6 +6,23 @@
 <link rel="stylesheet" href="{% static 'css/trade_analyzer.css' %}">
 <h1>Trade Analyzer</h1>
 
+<form method="POST" action="{% url 'trade_analyzer' %}">
+    {% csrf_token %}
+    <div>
+        <label for="player_1">Player 1 Name:</label>
+        <input type="text" id="player_1" name="player_1" placeholder="Enter Player 1 Name" required>
+    </div>
+    <div>
+        <label for="player_2">Player 2 Name:</label>
+        <input type="text" id="player_2" name="player_2" placeholder="Enter Player 2 Name" required>
+    </div>
+    <div>
+        <button type="submit">Compare Trade</button>
+    </div>
+</form>
 
+{% if result %}
+    <h3>Result: {{ result }}</h3>
+{% endif %}
 
 {% endblock %}

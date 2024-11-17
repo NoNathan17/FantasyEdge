@@ -1,3 +1,51 @@
 h1 {
     text-align: center;
 }
+
+h3 {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+}
+
+.trade-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+}
+
+.player-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.analyze-button {
+    background-color: #4da6ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.analyze-button:hover {
+    background-color: #007acc;
+}
+
+.result, .error {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}

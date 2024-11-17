@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from trade_analyzer.models import Player
+
 
 # Create your views here.
 
@@ -24,7 +26,10 @@ def compare_trade(request):
 
         result = compare_players(player_1, player_2)
 
-        return render(request, 'trade_analyzer.html', {'players': Player.objects.all(), 'result': result})
+        return JsonResponse({'result': result})
+
+        # return render(request, 'trade_analyzer.html', {'players': Player.objects.all(), 'result': result})
 
     else:
-        return render(request, 'trade_analyzer.html', {'players': Player.objects.all()})
+        # return render(request, 'trade_analyzer.html', {'players': Player.objects.all()})
+        return JsonResponse({'error': "Invalid request."}, status=400)

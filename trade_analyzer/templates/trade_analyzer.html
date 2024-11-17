@@ -7,7 +7,7 @@
 <h1>Trade Analyzer</h1>
 
 <div class="container">
-    <form method="POST" action="{% url 'compare_trade' %}">
+    <form method="POST" id="tradeForm">
         {% csrf_token %}
         <div class="trade-section">
             <div class="column">
@@ -21,10 +21,12 @@
         </div>
         <button type="submit" class="analyze-button">Analyze Trade</button>
     </form>
+
+    <div id="resultContainer" style="display: none;">
+        <h2 id="resultText"></h2>
+    </div>
 </div>
 
-{% if result %}
-    <h3>{{ result }}</h3>
-{% endif %}
+<script src="{% static 'js/trade_analyzer.js' %}"></script>
 
 {% endblock %}

@@ -2,8 +2,9 @@ h1 {
     text-align: center;
 }
 
-h3 {
+h2 {
     text-align: center;
+    color: white;
 }
 
 .container {
@@ -47,5 +48,4 @@ h3 {
 .result, .error {
     margin-top: 20px;
     font-size: 18px;
-    color: #333;
 }

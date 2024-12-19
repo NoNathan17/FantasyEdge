@@ -12,9 +12,9 @@ def compare_players(players_giving: list, players_getting: list) -> str:
     giving_rating = sum(player.rating for player in players_giving)
     getting_rating = sum(player.rating for player in players_getting)
     if giving_rating > getting_rating:
-        return f"Team 1 wins the trade"
+        return f"You win the trade"
     elif giving_rating < getting_rating:
-        return f"Team 2 wins the trade"
+        return f"Your opponent wins the trade"
     else:
         return "The trade is a tie"
     
@@ -25,6 +25,9 @@ def compare_trade(request):
 
         players_giving = Player.objects.filter(name__in=giving_names)
         players_getting = Player.objects.filter(name__in=getting_names)
+
+        if players_giving.count() != len(giving_names) or players_getting.count() != len(getting_names):
+            return JsonResponse({'error': "Some players could not be found."}, status=400)
 
         result = compare_players(players_giving, players_getting)
 

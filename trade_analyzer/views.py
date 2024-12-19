@@ -8,28 +8,28 @@ from trade_analyzer.models import Player
 def trade_analyzer_view(request):
     return render(request, 'trade_analyzer.html')
 
-def compare_players(player_1: Player, player_2: Player) -> str:
-    if player_1.rating > player_2.rating:
-        return f"{player_1.name} wins the trade"
-    elif player_1.rating < player_2.rating:
-        return f"{player_2.name} wins the trade"
+def compare_players(players_giving: list, players_getting: list) -> str:
+    giving_rating = sum(player.rating for player in players_giving)
+    getting_rating = sum(player.rating for player in players_getting)
+    if giving_rating > getting_rating:
+        return f"Team 1 wins the trade"
+    elif giving_rating < getting_rating:
+        return f"Team 2 wins the trade"
     else:
         return "The trade is a tie"
     
 def compare_trade(request):
     if request.method == "POST":
-        player_1_name = request.POST.get('player_1')
-        player_2_name = request.POST.get('player_2')
+        giving_names = request.POST.getlist('giving[]')
+        getting_names = request.POST.getlist('getting[]')
 
-        player_1 = Player.objects.get(name=player_1_name)
-        player_2 = Player.objects.get(name=player_2_name)
+        players_giving = Player.objects.filter(name__in=giving_names)
+        players_getting = Player.objects.filter(name__in=getting_names)
 
-        result = compare_players(player_1, player_2)
+        result = compare_players(players_giving, players_getting)
 
         return JsonResponse({'result': result})
 
-        # return render(request, 'trade_analyzer.html', {'players': Player.objects.all(), 'result': result})
 
     else:
-        # return render(request, 'trade_analyzer.html', {'players': Player.objects.all()})
         return JsonResponse({'error': "Invalid request."}, status=400)

@@ -41,16 +41,29 @@ h2 {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .analyze-button:hover {
     background-color: #007acc;
+    cursor: pointer;
+}
+
+.add-player-button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 12px;
+}
+
+.add-player-button:hover {
+    background-color: #c9d6de;
+    cursor: pointer;
 }
 
 .result, .error {
     margin-top: 20px;
     font-size: 18px;
 }
+
+

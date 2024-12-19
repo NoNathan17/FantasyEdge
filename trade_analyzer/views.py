@@ -12,11 +12,11 @@ def compare_players(players_giving: list, players_getting: list) -> str:
     giving_rating = sum(player.rating for player in players_giving)
     getting_rating = sum(player.rating for player in players_getting)
     if giving_rating < getting_rating:
-        return f"You win the trade"
+        return f"You win the trade. Hit that accept button!"
     elif giving_rating > getting_rating:
-        return f"Your opponent wins the trade"
+        return f"Your opponent wins the trade. You may want to consider a counteroffer."
     else:
-        return "The trade is a tie"
+        return "The trade is just about even. Consider your positional needs!"
     
 def compare_trade(request):
     if request.method == "POST":

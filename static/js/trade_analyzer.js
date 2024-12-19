@@ -28,6 +28,43 @@ document.addEventListener('DOMContentLoaded', function () {
         gettingPlayersContainer.appendChild(inputContainer);
     });
 
+    document.addEventListener('input', function (event) {
+        if (event.target.classList.contains('player-input')) {
+            const input = event.target;
+            const query = input.value.trim();
+
+            let dropdown = input.nextElementSibling;
+            if (!dropdown || !dropdown.classList.contains('trade-dropdown')) {
+                dropdown = document.createElement('ul');
+                dropdown.classList.add('trade-dropdown');
+                input.parentNode.appendChild(dropdown);
+            }
+
+            if (query.length > 0) {
+                fetch(`/autocomplete/?term=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        dropdown.innerHTML = '';
+                        if (data.players.length > 0) {
+                            data.players.forEach(player => {
+                                const suggestion = document.createElement('li');
+                                suggestion.textContent = player;
+                                suggestion.classList.add('trade-dropdown-item');
+                                suggestion.addEventListener('click', function () {
+                                    input.value = player; // Set input value to selected suggestion
+                                    dropdown.innerHTML = ''; // Clear the dropdown
+                                });
+                                dropdown.appendChild(suggestion);
+                            });
+                        }
+                    })
+                    .catch(error => console.error("Error fetching suggestions:", error));
+            } else {
+                dropdown.innerHTML = ''; 
+            }
+        }
+    });
+
     tradeForm.addEventListener('submit', function (event) {
         event.preventDefault();
 

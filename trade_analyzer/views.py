@@ -11,9 +11,9 @@ def trade_analyzer_view(request):
 def compare_players(players_giving: list, players_getting: list) -> str:
     giving_rating = sum(player.rating for player in players_giving)
     getting_rating = sum(player.rating for player in players_getting)
-    if giving_rating > getting_rating:
+    if giving_rating < getting_rating:
         return f"You win the trade"
-    elif giving_rating < getting_rating:
+    elif giving_rating > getting_rating:
         return f"Your opponent wins the trade"
     else:
         return "The trade is a tie"
@@ -32,7 +32,16 @@ def compare_trade(request):
         result = compare_players(players_giving, players_getting)
 
         return JsonResponse({'result': result})
-
-
     else:
         return JsonResponse({'error': "Invalid request."}, status=400)
+    
+def player_autocomplete(request):
+    if request.method == "GET":
+        query = request.GET.get('term', '').strip()
+        if query:
+            players = Player.objects.filter(name__icontains=query)[:5]  
+            player_names = [player.name for player in players]
+            return JsonResponse({'players': player_names})
+        return JsonResponse({'players': []})
+
+

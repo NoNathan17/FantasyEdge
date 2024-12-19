@@ -40,7 +40,7 @@ h2 {
 }
 
 .analyze-button {
-    background-color: #4da6ff;
+    background-color: #ff9800;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -50,7 +50,7 @@ h2 {
 }
 
 .analyze-button:hover {
-    background-color: #007acc;
+    background-color: #e68900;
     cursor: pointer;
 }
 

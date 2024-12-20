@@ -1,0 +1,20 @@
+{% load static %}
+{% block title %} {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+
+<div class="signup-container">
+    <h2>Sign In</h2>
+    <form method="post" class="signup-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="signup-button">Log In</button>
+    </form>
+    <p class="login-redirect">
+        Don't have an account? <a href="{% url 'signup' %}">Sign Up here</a>
+    </p>
+</div>
+{% endblock %}

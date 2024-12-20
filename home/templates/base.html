@@ -14,46 +14,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <body>
-    
-    <nav class="navbar">
-      <div class="hamburger" onclick="toggleMenu()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <a href="{% url 'home' %}" class="logo">FantasyEdge</a>
-      <ul class="nav-menu" id="nav-menu">
-        <li class="nav-item">
-          <a href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Live</a>
-        </li>
-        <li class="dropdown nav-item">
-            <a href="{% url 'overall_rankings' %}">Rankings</a> 
-            <div class="dropdown-content">
-              <a href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
-              <a href="{% url 'runningback_rankings' %}">Running Backs</a>
-              <a href="{% url 'widereciever_rankings' %}">Wide Recievers</a>
-              <a href="{% url 'tightend_rankings' %}">Tight Ends</a>
-              <a href="{% url 'kicker_rankings' %}">Kickers</a>
-              <a href="{% url 'defense_rankings' %}">Defenses</a>
-            </div>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'team_schedules' %}">Schedule</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'news' %}">News</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'trade_analyzer' %}">Trade Analyzer</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'notes' %}">Notes</a>
-        </li>
-      </ul>
-    </nav>
+    <header>
+		<nav class="navbar">
+		<div class="hamburger" onclick="toggleMenu()">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+		<a href="{% url 'home' %}" class="logo">FantasyEdge</a>
+		<ul class="nav-menu" id="nav-menu">
+			<li class="nav-item">
+			<a href="{% url 'home' %}">Home</a>
+			</li>
+			<li class="nav-item">
+			<a href="#">Live</a>
+			</li>
+			<li class="dropdown nav-item">
+				<a href="{% url 'overall_rankings' %}">Rankings</a> 
+				<div class="dropdown-content">
+				<a href="{% url 'quarterback_rankings' %}">Quarterbacks</a>
+				<a href="{% url 'runningback_rankings' %}">Running Backs</a>
+				<a href="{% url 'widereciever_rankings' %}">Wide Recievers</a>
+				<a href="{% url 'tightend_rankings' %}">Tight Ends</a>
+				<a href="{% url 'kicker_rankings' %}">Kickers</a>
+				<a href="{% url 'defense_rankings' %}">Defenses</a>
+				</div>
+			</li>
+			<li class="nav-item">
+			<a href="{% url 'team_schedules' %}">Schedule</a>
+			</li>
+			<li class="nav-item">
+			<a href="{% url 'news' %}">News</a>
+			</li>
+			<li class="nav-item">
+			<a href="{% url 'trade_analyzer' %}">Trade Analyzer</a>
+			</li>
+			<li class="nav-item">
+			<a href="{% url 'notes' %}">Notes</a>
+			</li>
+		</ul>
+		</nav>
+		<div class="auth-buttons">
+			{% if user.is_authenticated %}
+			<form action="{% url 'logout' %}" method="POST">
+				{% csrf_token %}
+				<button type="submit" class="auth-button">Logout</button>
+			</form>
+			{% else %}
+			<a href="{% url 'login' %}" class="auth-button">Login</a>
+			<a href="{% url 'signup' %}" class="auth-button">Sign Up</a>
+			{% endif %}
+		</div>
+	</header>
 
     <div class="content">{% block content %}{% endblock %}</div>
 

@@ -1,3 +1,9 @@
+h3 {
+    font-style: italic;
+    color: white;
+    text-align: center;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;

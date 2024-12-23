@@ -55,6 +55,7 @@ h2 {
 }
 
 .add-player-button {
+    font-family: verdana, sans-serif;
     border-radius: 5px;
     padding: 5px 10px;
     margin-bottom: 12px;

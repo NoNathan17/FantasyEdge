@@ -1,20 +1,19 @@
 {
-    "version": 2,
     "builds": [
-      {
+    {
         "src": "fantasy_football_assistant/wsgi.py",
         "use": "@vercel/python"
-      }
+    }
     ],
     "routes": [
-      {
+    {
         "src": "/static/(.*)",
         "dest": "/static/$1"
-      },
-      {
+    },
+    {
         "src": "/(.*)",
         "dest": "fantasy_football_assistant/wsgi.py"
-      }
+    }
     ]
   }
   

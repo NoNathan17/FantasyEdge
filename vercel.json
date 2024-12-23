@@ -8,6 +8,10 @@
     ],
     "routes": [
       {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
         "src": "/(.*)",
         "dest": "fantasy_football_assistant/wsgi.py"
       }

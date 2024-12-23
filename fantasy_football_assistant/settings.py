@@ -130,7 +130,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

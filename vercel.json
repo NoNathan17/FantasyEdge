@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/fantasy_football_assistant.wsgi.py"
+        "dest": "fantasy_football_assistant/wsgi.py"
       }
     ]
   }

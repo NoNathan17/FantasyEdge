@@ -49,9 +49,11 @@
 			<li class="nav-item">
 			<a href="{% url 'trade_analyzer' %}">Trade Analyzer</a>
 			</li>
+			{% if user.is_authenticated %}
 			<li class="nav-item">
 			<a href="{% url 'notes' %}">Notes</a>
 			</li>
+			{% endif %}
 		</ul>
 		</nav>
 		<div class="auth-buttons">

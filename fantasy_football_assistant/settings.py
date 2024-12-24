@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,14 +88,7 @@ WSGI_APPLICATION = 'fantasy_football_assistant.wsgi.app'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'cZtoglmKqaOQrusNpPgGTXCNJDmSNYLB',
-        'HOST': 'postgres.railway.internal',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default='postgresql://postgres:cZtoglmKqaOQrusNpPgGTXCNJDmSNYLB@autorack.proxy.rlwy.net:10651/railway')
 }
 
 

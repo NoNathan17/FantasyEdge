@@ -3,9 +3,16 @@
     "builds": [
     {
         "src": "fantasy_football_assistant/wsgi.py",
-        "use": "@vercel/python",
+        "use": "@vercel/python3",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.12.8"} 
-    }
+    },
+    {
+        "src": "build.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles"
+        }
+      }
     ],
     "routes": [
     {

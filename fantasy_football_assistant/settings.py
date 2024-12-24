@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'zyecJhwlpMZNlNekheTOttEgVGmwqAte',
+        'PASSWORD': 'cZtoglmKqaOQrusNpPgGTXCNJDmSNYLB',
         'HOST': 'postgres.railway.internal',
         'PORT': '5432',
     }
@@ -133,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -146,10 +146,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'redis://redis:6379/0' 
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0'  
-
-
-CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 

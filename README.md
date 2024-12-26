@@ -9,28 +9,28 @@ Access FantasyEdge [here!](https://fantasy-edge.vercel.app/)
 - View player rankings for the upcoming season, ability to filter by position. <br>
 - More filters coming soon!
 
-![Rankings Page](https://drive.google.com/file/d/1MO3GNi7Kmtdn8NzI6u-Ze23_zuQqUUFa/view?usp=drive_link)
+![Rankings Page](https://drive.google.com/uc?export=view&id=1MO3GNi7Kmtdn8NzI6u-Ze23_zuQqUUFa)
 
 ### Schedules
 - View all team schedules for the upcoming season. 
 
-![Schedules Page](https://drive.google.com/file/d/1l44cfClmesuS4JGuRRsbVDAJpN5zdiLe/view?usp=drive_link)
+![Schedules Page](https://drive.google.com/uc?export=view&id=1l44cfClmesuS4JGuRRsbVDAJpN5zdiLe)
 
 ### News
 - View all the breaking news on your most important studs. 
 
-![News Page](https://drive.google.com/file/d/1hsjhLXXt4KPm_-2kifuSLei3jUOJg3Z3/view?usp=drive_link)
+![News Page](https://drive.google.com/uc?export=view&id=1hsjhLXXt4KPm_-2kifuSLei3jUOJg3Z3)
 
 ### Trade Analyzer
 - Not sure if you should make a trade? Plug in the players into the trade analyzer!
 
-![Trade Analyzer Page](https://drive.google.com/file/d/16LQxDesTRVISI74AmVS27sE-sya-qEx3/view?usp=drive_link)
+![Trade Analyzer Page](https://drive.google.com/uc?export=view&id=16LQxDesTRVISI74AmVS27sE-sya-qEx3)
 
 ### Notes
 - Allows users to take detailed notes on players, teams, or strategies to help prepare for their season.
 - Notes are saved to the user's account, ensuring they are accessible to only them.
 
-![Notes Page](https://drive.google.com/file/d/1Ccnuqf2V5UTcTNgEgG3UvuJ-85u3K3QR/view?usp=drive_link)
+![Notes Page](https://drive.google.com/uc?export=view&id=1Ccnuqf2V5UTcTNgEgG3UvuJ-85u3K3QR)
 
 ## Future Enhancements
 ### Live Feature

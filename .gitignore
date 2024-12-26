@@ -1,3 +1,8 @@
 myworld/
-.vercel
+.vercel/
 staticfiles/
+db.sqlite3
+debug.log
+.DS_Store
+__pycache__
+.vercelignore

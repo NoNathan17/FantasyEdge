@@ -22,7 +22,7 @@ Access FantasyEdge [here!](https://fantasy-edge.vercel.app/)
 ![News Page](static/images/news.png)
 
 ### Trade Analyzer
-- Not sure if you should make a trade? Plug in the players into our trade analyzer!
+- Not sure if you should make a trade? Plug in the players into the trade analyzer!
 
 ![Trade Analyzer Page](static/images/trade_analyzer.png)
 
@@ -36,3 +36,9 @@ Access FantasyEdge [here!](https://fantasy-edge.vercel.app/)
 ### Live Feature
 - Difficult to keep track of all your players every Sunday? The live feature will allow you to see <br>
 instant updates on each of your players in real-time.
+
+### Import Feature
+- Ability to import your own fantasy team from popular apps (ESPN, Yahoo, Sleeper) and recieve personalized suggestions.
+
+### Responsiveness
+- FantasyEdge is currently not mobile-friendly, the app still functions but the UI is often discombobulated.
